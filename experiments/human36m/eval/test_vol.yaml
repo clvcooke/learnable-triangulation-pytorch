@@ -1,4 +1,4 @@
-title: "human36m_vol_softmax"
+title: "test_run"
 kind: "human36m"
 vis_freq: 1000
 vis_n_elements: 10
@@ -14,8 +14,8 @@ opt:
   n_objects_per_epoch: 15000
   n_epochs: 9999
 
-  batch_size: 5
-  val_batch_size: 75
+  batch_size: 1
+  val_batch_size: 1
 
   lr: 0.0001
   process_features_lr: 0.001
@@ -29,7 +29,7 @@ model:
   volume_aggregation_method: "softmax"
 
   init_weights: true
-  checkpoint: "./data/pretrained/human36m/human36m_vol_softmax_10-08-2019/checkpoints/0040/weights.pth"
+  checkpoint: "/home/colin/vpose/vnet/weights.pth"
 
   use_gt_pelvis: false
 
@@ -47,7 +47,7 @@ model:
     style: "simple"
 
     init_weights: true
-    checkpoint: "/home/colin/vpose/pose_resnet_4.5_pixels_human36m.pth"
+    checkpoint: "/home/colin/vpose/resnet/weights.pth"
 
     num_joints: 17
     num_layers: 152
@@ -85,6 +85,6 @@ dataset:
     randomize_n_views: false
     min_n_views: null
     max_n_views: null
-    num_workers: 8
+    num_workers: 1
 
     retain_every_n_frames_in_test: 1

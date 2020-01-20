@@ -4,13 +4,10 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-import os
 import logging
 
 import torch
 import torch.nn as nn
-from collections import OrderedDict
-
 
 BN_MOMENTUM = 0.1
 logger = logging.getLogger(__name__)
@@ -367,7 +364,8 @@ def get_pose_net(config, device='cuda:0'):
 
                 new_pretrained_state_dict[k.replace(prefix, "")] = o
 
-        not_inited_params = set(map(lambda x: x.replace(prefix, ""), pretrained_state_dict.keys())) - set(new_pretrained_state_dict.keys())
+        not_inited_params = set(map(lambda x: x.replace(prefix, ""), pretrained_state_dict.keys())) - set(
+            new_pretrained_state_dict.keys())
         if len(not_inited_params) > 0:
             print("Parameters [{}] were not inited".format(not_inited_params))
 
